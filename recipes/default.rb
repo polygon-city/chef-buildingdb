@@ -7,6 +7,4 @@
 # All rights reserved - Do Not Redistribute
 #
 
-file "/tmp/stuff" do
-  action :create
-end
+include_recipe "mongodb"
