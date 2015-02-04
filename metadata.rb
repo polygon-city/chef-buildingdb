@@ -6,5 +6,7 @@ description      'Installs/Configures buildingdb'
 long_description 'Installs/Configures buildingdb'
 version          '0.1.0'
 
+depends "application"
+depends "application_nodejs"
 depends "mongodb"
 
