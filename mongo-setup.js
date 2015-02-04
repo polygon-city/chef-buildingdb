@@ -1,16 +1,4 @@
-// mongo shortcuts replaced with valid js
-
-// use test;
-db = db.getSiblingDB('test');
-
-// test.db.dropDatabase();
-db.dropDatabase();
-
+// Create indexes
+db.users.ensureIndex( { email: 1 }, { unique: true } );
+db.users.ensureIndex( { username: 1 }, { unique: true } );
 db.buildings.ensureIndex( { location: "2dsphere" } );
-db.createUser(
-   {
-     user: "user",
-     pwd: "password",
-     roles: [ "readWrite", "dbAdmin" ]
-   }
-);
