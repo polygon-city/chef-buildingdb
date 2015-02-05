@@ -1,6 +1,6 @@
 module.exports = {
   "db": {
-    "url": "mongodb://user:password@localhost/test"
+    "url": "mongodb://user:password@localhost/building-database"
   },
   "email": {
     "report": {

@@ -24,6 +24,7 @@ sudo apt-get install -y mongodb-org &> /dev/null
 
 # Install building-database
 cd ~
+rm -rf building-database
 git clone git@github.com:polygon-city/building-database.git
 cd building-database
 sudo npm update &> /dev/null
