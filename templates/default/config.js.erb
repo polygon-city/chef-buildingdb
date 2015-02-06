@@ -1,0 +1,18 @@
+module.exports = {
+  "db": {
+    "url": "mongodb://<%= node[:buildingdb][:username] %>:<%= node[:buildingdb][:password] %>@<%= node[:buildingdb][:dbname] %>/<%= node[:buildingdb][:dbname] %>"
+        },
+  "email": {
+    "report": {
+      "fromAddress": "<%= node[:buildingdb][:report_email_address] %>",
+      "subject": "<%= node[:buildingdb][:report_email_subject] %>"
+    },
+    "reset": {
+      "fromAddress": "<%= node[:buildingdb][:reset_email_address] %>",
+      "subject": "<%= node[:buildingdb][:reset_email_subject] %>"
+    }
+  },
+  "session": {
+    "secret": "<%= node[:buildingdb][:session_secret] %>"
+  }
+};

@@ -9,6 +9,13 @@
 
 include_recipe "mongodb"
 
+directory "/srv/buildingdb/shared/config"
+
+template "/srv/buildingdb/shared/config/config.js" do
+  source "config.js.erb"
+end
+
+
 application "buildingdb" do
   path "/srv/buildingdb"
   owner "www-data"
@@ -17,7 +24,8 @@ application "buildingdb" do
 
   repository "https://github.com/polygon-city/building-database.git"
 
-  nodejs do
-    entry_point "app.js"
-  end
+  symlinks "config/config.js" => "config/config.js"
+  # nodejs do
+  #   entry_point "app.js"
+  # end
 end
