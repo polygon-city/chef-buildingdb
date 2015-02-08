@@ -9,6 +9,14 @@
 
 include_recipe "mongodb"
 
+node.set[:mongodb][:users] = [{
+  'username' => node[:buildingdb][:mongodb][:user][:name],
+  'password' => node[:buildingdb][:mongodb][:user][:password],
+  'roles' => %w(readWrite),
+  'database' => node[:buildingdb][:mongodb][:database]
+}]
+include_recipe "mongodb::user_management"
+
 application "buildingdb" do
   path "/srv/buildingdb"
   owner "www-data"
@@ -23,6 +31,10 @@ application "buildingdb" do
 
     template "/srv/buildingdb/shared/config/config.js" do
       source "config.js.erb"
+    end
+
+    template "/srv/buildingdb/shared/config/setup.js" do
+      source "setup.js.erb"
     end
   end
 

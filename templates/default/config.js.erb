@@ -1,7 +1,7 @@
 module.exports = {
   "db": {
-    "url": "mongodb://<%= node[:buildingdb][:username] %>:<%= node[:buildingdb][:password] %>@<%= node[:buildingdb][:dbname] %>/<%= node[:buildingdb][:dbname] %>"
-        },
+    "url": "<%= node[:buildingdb][:mongodb][:url] %>"
+  },
   "email": {
     "report": {
       "fromAddress": "<%= node[:buildingdb][:report_email_address] %>",
