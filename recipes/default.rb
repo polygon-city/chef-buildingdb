@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "nodejs"
+%w(bower grunt-cli).each do |package|
+  nodejs_npm package
+end
 include_recipe "mongodb"
 
 node.set[:mongodb][:users] = [{
@@ -39,9 +43,10 @@ application "buildingdb" do
   end
 
   symlinks "config/config.js" => "config/config.js",
+	   "config/setup.js" => "config/setup.js",
 	   "tmp" => "tmp"
 
   # nodejs do
-  #   entry_point "app.js"
+  #   entry_point 'bin/www'
   # end
 end
