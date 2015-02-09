@@ -28,6 +28,7 @@ application "buildingdb" do
   packages ["git"]
 
   repository "https://github.com/polygon-city/building-database.git"
+  revision "8dbe12cbc5d54bff17f3f9192e32c5104a7463ae"
 
   before_symlink do
     directory "/srv/buildingdb/shared/config"
