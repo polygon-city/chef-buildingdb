@@ -46,7 +46,8 @@ application "buildingdb" do
 	   "config/setup.js" => "config/setup.js",
 	   "tmp" => "tmp"
 
-  # nodejs do
-  #   entry_point 'bin/www'
-  # end
+  nodejs do
+    template 'upstart.conf.erb'
+    entry_point 'bin/www'
+  end
 end
