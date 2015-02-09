@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "nodejs"
+include_recipe 'nodejs::nodejs_from_source'
 %w(bower grunt-cli).each do |package|
   nodejs_npm package
 end
