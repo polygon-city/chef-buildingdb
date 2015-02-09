@@ -6,4 +6,6 @@ Steps I ran to get this running, in its current state (https://github.com/polygo
 - Update Vagrant to 1.7.2
 - Install the ChefDK (https://downloads.chef.io/chef-dk)
 
+`vagrant plugin install vagrant-berkshelf`
+`vagrant plugin install vagrant-omnibus`
 `vagrant up`
