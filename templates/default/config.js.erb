@@ -3,6 +3,10 @@ module.exports = {
     "url": "<%= node[:buildingdb][:mongodb][:url] %>"
   },
   "email": {
+    "verify" : {
+      "fromAddress": "<%= node[:buildingdb][:verify_email_address] %>",
+      "subject": "<%= node[:buildingdb][:verify_email_subject] %>"
+    },
     "report": {
       "fromAddress": "<%= node[:buildingdb][:report_email_address] %>",
       "subject": "<%= node[:buildingdb][:report_email_subject] %>"
