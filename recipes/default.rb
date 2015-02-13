@@ -30,7 +30,7 @@ application "buildingdb" do
   packages ["git"]
 
   repository "https://github.com/polygon-city/building-database.git"
-  revision "8dbe12cbc5d54bff17f3f9192e32c5104a7463ae"
+  revision "baldur/tinkering"
 
   before_symlink do
     directory "/srv/buildingdb/shared/config"
@@ -42,6 +42,17 @@ application "buildingdb" do
 
     template "/srv/buildingdb/shared/config/setup.js" do
       source "setup.js.erb"
+    end
+
+    execute "grunt sass" do
+      cwd "#{new_resource.release_path}"
+      user "www-data"
+      command "grunt sass"
+    end
+
+    execute "bower install" do
+      cwd "#{new_resource.release_path}"
+      command "bower install --allow-root"
     end
   end
 
