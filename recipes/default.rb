@@ -6,6 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+#
+package "assimp-utils"
 
 include_recipe 'nodejs::nodejs_from_source'
 %w(bower grunt-cli).each do |package|
