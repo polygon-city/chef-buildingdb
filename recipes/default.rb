@@ -28,6 +28,10 @@ application "buildingdb" do
   owner "www-data"
   group "www-data"
   packages ["git"]
+  environment(
+    'NODE_ENV' => 'production'
+  )
+  environment_name 'production'
 
   repository "https://github.com/polygon-city/building-database.git"
   revision "baldur/tinkering"
