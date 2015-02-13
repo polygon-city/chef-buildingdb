@@ -9,5 +9,6 @@ version          '0.1.0'
 depends "application"
 depends "application_nodejs"
 depends "mongodb"
+depends 'nginx'
 depends "nodejs"
 

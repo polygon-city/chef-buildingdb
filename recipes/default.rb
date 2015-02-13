@@ -23,7 +23,7 @@ node.set[:mongodb][:users] = [{
 }]
 include_recipe "mongodb::user_management"
 
-application "buildingdb" do
+application node[:buildingdb][:application] do
   path node[:buildingdb][:deploy_to]
   owner node[:buildingdb][:node][:user]
   group node[:buildingdb][:node][:group]
@@ -69,3 +69,12 @@ application "buildingdb" do
     entry_point 'bin/www'
   end
 end
+
+include_recipe "nginx::default"
+
+template "#{node[:nginx][:dir]}/sites-available/#{node[:buildingdb][:application]}" do
+  source 'nginx-site.conf.erb'
+  notifies :reload, "service[nginx]"
+end
+
+nginx_site node[:buildingdb][:application]

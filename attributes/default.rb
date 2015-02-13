@@ -1,3 +1,4 @@
+default[:buildingdb][:application] = "buildingdb"
 default[:buildingdb][:deploy_to] = "/srv/building"
 
 default[:buildingdb][:git][:src] = "https://github.com/polygon-city/building-database.git"
