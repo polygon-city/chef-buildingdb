@@ -17,3 +17,6 @@ console log
 <% end -%>
 chdir <%= @app_dir %>
 exec node <%= @entry %>
+
+respawn
+respawn limit 10 90
