@@ -24,27 +24,27 @@ node.set[:mongodb][:users] = [{
 include_recipe "mongodb::user_management"
 
 application "buildingdb" do
-  path "/srv/buildingdb"
-  owner "www-data"
-  group "www-data"
+  path node[:buildingdb][:deploy_to]
+  owner node[:buildingdb][:node][:user]
+  group node[:buildingdb][:node][:group]
   packages ["git"]
   environment(
-    'NODE_ENV' => 'production'
+    'NODE_ENV' => node[:buildingdb][:node][:environment]
   )
-  environment_name 'production'
+  environment_name node[:buildingdb][:node][:environment]
 
-  repository "https://github.com/polygon-city/building-database.git"
-  revision "baldur/tinkering"
+  repository node[:buildingdb][:git][:src]
+  revision node[:buildingdb][:git][:revision]
 
   before_symlink do
-    directory "/srv/buildingdb/shared/config"
-    directory "/srv/buildingdb/shared/tmp"
+    directory "#{new_resource.shared_path}/config"
+    directory "#{new_resource.shared_path}/tmp"
 
-    template "/srv/buildingdb/shared/config/config.js" do
+    template "#{new_resource.shared_path}/config/config.js" do
       source "config.js.erb"
     end
 
-    template "/srv/buildingdb/shared/config/setup.js" do
+    template "#{new_resource.shared_path}/config/setup.js" do
       source "setup.js.erb"
     end
 

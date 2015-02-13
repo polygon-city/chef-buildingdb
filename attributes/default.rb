@@ -1,3 +1,12 @@
+default[:buildingdb][:deploy_to] = "/srv/building"
+
+default[:buildingdb][:git][:src] = "https://github.com/polygon-city/building-database.git"
+default[:buildingdb][:git][:revision] = "baldur/tinkering"
+
+default[:buildingdb][:node][:user] = 'www-data'
+default[:buildingdb][:node][:group] = 'www-data'
+default[:buildingdb][:node][:environment] = 'production'
+
 default[:buildingdb][:mongodb][:user][:name] = "builder"
 default[:buildingdb][:mongodb][:user][:password] = "s3ckr3t"
 default[:buildingdb][:mongodb][:database] = "building-database"
