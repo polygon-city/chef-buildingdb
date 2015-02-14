@@ -1,3 +1,3 @@
-%w(mongodb nginx install).each do |r|
-  include_recipe r
+%w(mongodb nginx app).each do |r|
+  include_recipe "buildingdb::#{r}"
 end
