@@ -12,3 +12,5 @@ vagrant plugin install vagrant-berkshelf
 vagrant plugin install vagrant-omnibus
 vagrant up
 ```
+
+View site at http://192.168.10.10
