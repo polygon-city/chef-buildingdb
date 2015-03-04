@@ -2,7 +2,7 @@ default[:buildingdb][:application] = "buildingdb"
 default[:buildingdb][:deploy_to] = "/srv/building"
 
 default[:buildingdb][:git][:src] = "https://github.com/polygon-city/building-database.git"
-default[:buildingdb][:git][:revision] = "baldur/tinkering"
+default[:buildingdb][:git][:revision] = "master"
 
 default[:buildingdb][:node][:user] = 'www-data'
 default[:buildingdb][:node][:group] = 'www-data'
