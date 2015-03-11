@@ -20,6 +20,7 @@ default[:buildingdb][:verify_email_address] = "noreply@example.com"
 default[:buildingdb][:verify_email_subject] = "Building verify"
 default[:buildingdb][:session_secret] = "secret"
 
-default[:buildingdb][:s3][:access_id] = "<access_key>"
-default[:buildingdb][:s3][:secret_access_key] = "<secret_access_key>"
-default[:buildingdb][:s3][:region] = "<region>"
+default[:buildingdb][:s3][:access_id] = nil
+default[:buildingdb][:s3][:access_key] = nil
+default[:buildingdb][:s3][:region] = "us-east-1"
+default[:buildingdb][:s3][:bucket] = "model-files"

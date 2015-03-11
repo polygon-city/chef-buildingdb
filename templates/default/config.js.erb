@@ -20,8 +20,11 @@ module.exports = {
     "secret": "<%= node[:buildingdb][:session_secret] %>"
   },
   "s3": {
+    <% if node[:buildingdb][:s3][:access_id] and node[:buildingdb][:s3][:access_key] %>
     "accessId": "<%= node[:buildingdb][:s3][:access_id] %>",
-    "secretAccessKey": "<%= node[:buildingdb][:s3][:secret_access_key] %>",
-    "region": "<%= node[:buildingdb][:s3][:region] %>"
+    "secretAccessKey": "<%= node[:buildingdb][:s3][:access_key] %>",
+    <% end 5>
+    "region": "<%= node[:buildingdb][:s3][:region] %>",
+    "bucket": "<%= node[:buildingdb][:s3][:bucket] %>"
   }
 };
