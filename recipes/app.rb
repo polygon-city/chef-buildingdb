@@ -18,7 +18,7 @@ application node[:buildingdb][:application] do
   repository node[:buildingdb][:git][:src]
   revision node[:buildingdb][:git][:revision]
 
-  before_symlink do
+  before_deploy do
     directory "#{new_resource.shared_path}/config"
     directory "#{new_resource.shared_path}/tmp"
 
@@ -29,7 +29,9 @@ application node[:buildingdb][:application] do
     template "#{new_resource.shared_path}/config/setup.js" do
       source "setup.js.erb"
     end
+  end
 
+  before_symlink do
     execute "indexes" do
       cwd "#{new_resource.shared_path}"
       user "www-data"
