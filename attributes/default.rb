@@ -20,6 +20,8 @@ default[:buildingdb][:verify_email_address] = "noreply@example.com"
 default[:buildingdb][:verify_email_subject] = "Building verify"
 default[:buildingdb][:session_secret] = "secret"
 
+default[:buildingdb][:nginx][:client_max_body_size] = "50M"
+
 default[:buildingdb][:s3][:access_id] = nil
 default[:buildingdb][:s3][:access_key] = nil
 default[:buildingdb][:s3][:region] = "us-east-1"
