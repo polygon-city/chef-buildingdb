@@ -25,4 +25,4 @@ default[:buildingdb][:nginx][:client_max_body_size] = "50M"
 default[:buildingdb][:s3][:access_id] = nil
 default[:buildingdb][:s3][:access_key] = nil
 default[:buildingdb][:s3][:region] = "us-east-1"
-default[:buildingdb][:s3][:bucket] = "model-files"
+default[:buildingdb][:s3][:bucket] = "dev.polygon.city"
