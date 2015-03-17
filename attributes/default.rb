@@ -8,6 +8,7 @@ default[:buildingdb][:node][:user] = 'www-data'
 default[:buildingdb][:node][:group] = 'www-data'
 default[:buildingdb][:node][:environment] = 'production'
 
+default[:buildingdb][:mongodb][:version] = '2.6.8'
 default[:buildingdb][:mongodb][:user][:name] = "builder"
 default[:buildingdb][:mongodb][:user][:password] = "s3ckr3t"
 default[:buildingdb][:mongodb][:database] = "building-database"
@@ -21,6 +22,7 @@ default[:buildingdb][:verify_email_subject] = "Building verify"
 default[:buildingdb][:session_secret] = "secret"
 
 default[:buildingdb][:nginx][:client_max_body_size] = "50M"
+
 
 default[:buildingdb][:s3][:access_id] = nil
 default[:buildingdb][:s3][:access_key] = nil

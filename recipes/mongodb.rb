@@ -1,3 +1,6 @@
+node.set[:mongodb][:package_version] = node[:buildingdb][:mongodb][:version]
+node.set[:mongodb][:install_method] = 'mongodb-org'
+
 include_recipe "mongodb"
 
 execute "lets see if mongo is up yet" do
