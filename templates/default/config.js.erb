@@ -1,18 +1,26 @@
+var emailDomain = "<%= node[:buildingdb][:email][:domain] %>"
 module.exports = {
   "db": {
     "url": "<%= node[:buildingdb][:mongodb][:url] %>"
   },
   "email": {
+    "smtp": {
+      "host": "<%= node[:buildingdb][:email][:smtp][:host] %>",
+      "auth": {
+        "user": "<%= node[:buildingdb][:email][:smtp][:user] %>",
+        "pass": "<%= node[:buildingdb][:email][:smtp][:pass] %>"
+      }
+    },
     "verify" : {
-      "fromAddress": "<%= node[:buildingdb][:verify_email_address] %>",
+      "fromAddress": "noreply@" + emailDomain,
       "subject": "<%= node[:buildingdb][:verify_email_subject] %>"
     },
     "report": {
-      "fromAddress": "<%= node[:buildingdb][:report_email_address] %>",
+      "fromAddress": "noreply@" + emailDomain,
       "subject": "<%= node[:buildingdb][:report_email_subject] %>"
     },
     "reset": {
-      "fromAddress": "<%= node[:buildingdb][:reset_email_address] %>",
+      "fromAddress": "noreply@" + emailDomain,
       "subject": "<%= node[:buildingdb][:reset_email_subject] %>"
     }
   },
