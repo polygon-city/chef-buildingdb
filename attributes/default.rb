@@ -1,5 +1,7 @@
 default[:buildingdb][:application] = "buildingdb"
 default[:buildingdb][:deploy_to] = "/srv/building"
+default[:buildingdb][:basic_auth][:enabled] = true
+default[:buildingdb][:basic_auth][:user_password] = "bob:$apr1$yx/Nc0zv$xIgxE5yJIAhs6YZU2292S1"
 
 default[:buildingdb][:git][:src] = "https://github.com/polygon-city/building-database.git"
 default[:buildingdb][:git][:revision] = "master"
