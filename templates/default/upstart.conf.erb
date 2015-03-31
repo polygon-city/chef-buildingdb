@@ -15,7 +15,7 @@ console log
 <% unless @group.nil? -%>
 	setgid <%= @group %>
 <% end -%>
-chdir <%= @app_dir %>
+chdir /srv/building/current
 exec node <%= @entry %>
 
 respawn
