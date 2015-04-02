@@ -5,6 +5,12 @@ node.set[:mongodb][:install_method] = 'mongodb-org'
 
 node.set['mongodb']['ruby_gems']['mongo'] = '~> 1.12'
 
+# keeping inline with ubuntu package changes
+node.set[:mongodb][:instance_name] = 'mongod'
+node.set[:mongodb][:default_init_name] = 'mongod'
+node.set[:mongodb][:dbconfig_file] = '/etc/mongod.conf'
+node.set[:mongodb][:sysconfig_file] = '/etc/default/mongod'
+
 include_recipe 'mongodb::mongo_gem'
 include_recipe 'mongodb'
 
