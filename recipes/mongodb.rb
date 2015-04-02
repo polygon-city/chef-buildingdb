@@ -14,6 +14,8 @@ node.set[:mongodb][:sysconfig_file] = '/etc/default/mongod'
 include_recipe 'mongodb::mongo_gem'
 include_recipe 'mongodb'
 
+mongodb_instance "mongodb"
+
 execute "lets see if mongo is up yet" do
   command 'mongo --eval "{ping: 1}"'
   action :run
