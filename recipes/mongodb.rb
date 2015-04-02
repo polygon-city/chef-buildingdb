@@ -1,7 +1,12 @@
+node.set['build-essential']['compile_time'] = true
+include_recipe 'build-essential'
 node.set[:mongodb][:package_version] = node[:buildingdb][:mongodb][:version]
 node.set[:mongodb][:install_method] = 'mongodb-org'
 
-include_recipe "mongodb"
+node.set['mongodb']['ruby_gems']['mongo'] = '~> 1.12'
+
+include_recipe 'mongodb::mongo_gem'
+include_recipe 'mongodb'
 
 execute "lets see if mongo is up yet" do
   command 'mongo --eval "{ping: 1}"'
