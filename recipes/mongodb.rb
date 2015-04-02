@@ -11,7 +11,7 @@ include_recipe 'mongodb'
 execute "lets see if mongo is up yet" do
   command 'mongo --eval "{ping: 1}"'
   action :run
-  retries 6
+  retries 12
   retry_delay 10
 end
 
