@@ -33,7 +33,7 @@ application node[:buildingdb][:application] do
     execute "indexes" do
       cwd "#{new_resource.shared_path}"
       user "www-data"
-      command "mongo -u #{node[:buildingdb][:mongodb][:user][:name]} -p #{node[:buildingdb][:mongodb][:user][:password]} #{node[:buildingdb][:mongodb][:database]} < config/setup.js"
+      command "mongo #{node[:buildingdb][:mongodb][:host]} -u #{node[:buildingdb][:mongodb][:user][:name]} -p #{node[:buildingdb][:mongodb][:user][:password]} #{node[:buildingdb][:mongodb][:database]} < config/setup.js"
     end
 
     execute "grunt sass" do
