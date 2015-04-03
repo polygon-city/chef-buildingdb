@@ -16,5 +16,6 @@ end
 cron "mongo_backup" do
   action :create
   command "/usr/bin/mongodb_s3_backup"
+  hour '*/2'
 end
 
