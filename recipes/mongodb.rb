@@ -14,6 +14,7 @@ node.set[:mongodb][:install_method] = 'mongodb-org'
 node.set['mongodb']['ruby_gems']['mongo'] = '~> 1.12'
 node.set[:mongodb][:instance_name] = 'mongod'
 node.set[:mongodb][:default_init_name] = 'mongod'
+node.set[:mongodb][:config][:dbpath] = '/data/db'
 
 include_recipe 'mongodb::mongo_gem'
 include_recipe 'mongodb'
