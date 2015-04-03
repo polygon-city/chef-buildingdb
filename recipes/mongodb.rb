@@ -1,20 +1,24 @@
+directory "/data/db" do
+  recursive true
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
 node.set['build-essential']['compile_time'] = true
 include_recipe 'build-essential'
+
 node.set[:mongodb][:package_version] = node[:buildingdb][:mongodb][:version]
 node.set[:mongodb][:install_method] = 'mongodb-org'
-
 node.set['mongodb']['ruby_gems']['mongo'] = '~> 1.12'
-
-# keeping inline with ubuntu package changes
 node.set[:mongodb][:instance_name] = 'mongod'
 node.set[:mongodb][:default_init_name] = 'mongod'
-node.set[:mongodb][:dbconfig_file] = '/etc/mongod.conf'
-node.set[:mongodb][:sysconfig_file] = '/etc/default/mongod'
 
 include_recipe 'mongodb::mongo_gem'
 include_recipe 'mongodb'
 
-mongodb_instance "mongodb"
+mongodb_instance "mongod"
 
 execute "lets see if mongo is up yet" do
   command 'mongo --eval "{ping: 1}"'
