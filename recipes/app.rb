@@ -24,19 +24,9 @@ application node[:buildingdb][:application] do
     template "#{new_resource.shared_path}/config/config.js" do
       source "config.js.erb"
     end
-
-    template "#{new_resource.shared_path}/config/setup.js" do
-      source "setup.js.erb"
-    end
   end
 
   before_symlink do
-    execute "indexes" do
-      cwd "#{new_resource.shared_path}"
-      user "www-data"
-      command "mongo #{node[:buildingdb][:mongodb][:host]}/#{node[:buildingdb][:mongodb][:database]} -u #{node[:buildingdb][:mongodb][:user][:name]} -p #{node[:buildingdb][:mongodb][:user][:password]} < config/setup.js"
-    end
-
     execute "grunt sass" do
       cwd "#{new_resource.release_path}"
       user "www-data"
