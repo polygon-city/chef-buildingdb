@@ -1,3 +1,4 @@
+package 'mongodb-clients'
 include_recipe 'nodejs::nodejs_from_source'
 %w(bower grunt-cli).each do |package|
   nodejs_npm package
@@ -33,7 +34,7 @@ application node[:buildingdb][:application] do
     execute "indexes" do
       cwd "#{new_resource.shared_path}"
       user "www-data"
-      command "mongo #{node[:buildingdb][:mongodb][:host]} -u #{node[:buildingdb][:mongodb][:user][:name]} -p #{node[:buildingdb][:mongodb][:user][:password]} #{node[:buildingdb][:mongodb][:database]} < config/setup.js"
+      command "mongo #{node[:buildingdb][:mongodb][:host]}/#{node[:buildingdb][:mongodb][:database]} -u #{node[:buildingdb][:mongodb][:user][:name]} -p #{node[:buildingdb][:mongodb][:user][:password]} < config/setup.js"
     end
 
     execute "grunt sass" do
