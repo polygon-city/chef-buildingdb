@@ -27,10 +27,14 @@ execute "lets see if mongo is up yet" do
   retry_delay 10
 end
 
-node.set[:mongodb][:users] = [{
-  'username' => node[:buildingdb][:mongodb][:user][:name],
-  'password' => node[:buildingdb][:mongodb][:user][:password],
-  'roles' => %w(readWrite),
-  'database' => node[:buildingdb][:mongodb][:database]
-}]
-include_recipe "mongodb::user_management"
+file "/tmp/mongo_db_setup" do
+  content <<-EOM
+    use #{node[:buildingdb][:mongodb][:database]}
+    db.createUser( { user: "#{ node[:buildingdb][:mongodb][:user][:name] }", pwd: "#{ node[:buildingdb][:mongodb][:user][:password] }", roles: [ "readWrite", "dbAdmin" ] } );
+  EOM
+end
+
+execute "create database and user" do
+  command "mongo < /tmp/mongo_db_setup"
+  action :run
+end
