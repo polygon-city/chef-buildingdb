@@ -1,7 +1,7 @@
-package "python-pip"
-execute "pip install awscli"
+package 'python-pip'
+execute 'pip install awscli'
 
-file "/usr/bin/mongodb_s3_backup" do
+file '/usr/bin/mongodb_s3_backup' do
   mode '0755'
   content <<-EOM
 #! /bin/bash
@@ -13,9 +13,10 @@ backup_path=/data/db/backup/$filename
   EOM
 end
 
-cron "mongo_backup" do
+cron 'mongo_backup' do
   action :create
-  command "/usr/bin/mongodb_s3_backup"
+  command '/usr/bin/mongodb_s3_backup'
+  minute '0'
   hour '*/2'
 end
 
