@@ -11,10 +11,11 @@ default[:buildingdb][:node][:group] = 'www-data'
 default[:buildingdb][:node][:environment] = 'production'
 
 default[:buildingdb][:mongodb][:version] = '2.6.8'
+default[:buildingdb][:mongodb][:port] = 27017
+default[:buildingdb][:mongodb][:host] = "localhost"
 default[:buildingdb][:mongodb][:user][:name] = "builder"
 default[:buildingdb][:mongodb][:user][:password] = "s3ckr3t"
 default[:buildingdb][:mongodb][:database] = "building-database"
-default[:buildingdb][:mongodb][:host] = "localhost"
 default[:buildingdb][:mongodb][:url] = "mongodb://builder:s3ckr3t@localhost/building-database"
 default[:buildingdb][:email][:domain] = "example.com"
 default[:buildingdb][:email][:smtp][:host] = "localhost"

@@ -3,6 +3,13 @@ module.exports = {
   "db": {
     "url": "<%= node[:buildingdb][:mongodb][:url] %>"
   },
+  "mongodb": {
+    "host": "<%= node[:buildingdb][:mongodb][:host] %>",
+    "port": "<%= node[:buildingdb][:mongodb][:port] %>",
+    "database": "<%= node[:buildingdb][:mongodb][:database] %>",
+    "user": "<%= node[:buildingdb][:mongodb][:user] %>",
+    "password": "<%= node[:buildingdb][:mongodb][:password] %>"
+  },
   "email": {
     "smtp": {
       "host": "<%= node[:buildingdb][:email][:smtp][:host] %>",
