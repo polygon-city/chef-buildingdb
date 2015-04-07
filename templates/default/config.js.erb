@@ -1,11 +1,11 @@
 var emailDomain = "<%= node[:buildingdb][:email][:domain] %>"
+var host = "<%= node[:buildingdb][:mongodb][:host] %>"
+var port = <%= node[:buildingdb][:mongodb][:port] %>
+var database = "<%= node[:buildingdb][:mongodb][:database] %>"
 module.exports = {
   "db": {
-    "url": "<%= node[:buildingdb][:mongodb][:url] %>",
-    "host": "<%= node[:buildingdb][:mongodb][:host] %>",
-    "port": "<%= node[:buildingdb][:mongodb][:port] %>",
+    "url": "mongodb://"+host+":"+port + "/" + database,
     "options": {
-      "db": "<%= node[:buildingdb][:mongodb][:database] %>",
       "user": "<%= node[:buildingdb][:mongodb][:user] %>",
       "pass": "<%= node[:buildingdb][:mongodb][:password] %>",
       "server": {
