@@ -1,5 +1,5 @@
 var emailDomain = "<%= node[:buildingdb][:email][:domain] %>"
-var host = "<%= node[:buildingdb][:mongodb][:host] %>"
+var host = "<%= node[:opsworks][:instance][:layers][:mongodb][:instances].first.last[:private_ip] %>"
 var port = <%= node[:buildingdb][:mongodb][:port] %>
 var database = "<%= node[:buildingdb][:mongodb][:database] %>"
 module.exports = {
