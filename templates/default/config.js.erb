@@ -1,14 +1,19 @@
 var emailDomain = "<%= node[:buildingdb][:email][:domain] %>"
 module.exports = {
   "db": {
-    "url": "<%= node[:buildingdb][:mongodb][:url] %>"
-  },
-  "mongodb": {
+    "url": "<%= node[:buildingdb][:mongodb][:url] %>",
     "host": "<%= node[:buildingdb][:mongodb][:host] %>",
     "port": "<%= node[:buildingdb][:mongodb][:port] %>",
-    "database": "<%= node[:buildingdb][:mongodb][:database] %>",
-    "user": "<%= node[:buildingdb][:mongodb][:user] %>",
-    "password": "<%= node[:buildingdb][:mongodb][:password] %>"
+    "options": {
+      "db": "<%= node[:buildingdb][:mongodb][:database] %>",
+      "user": "<%= node[:buildingdb][:mongodb][:user] %>",
+      "pass": "<%= node[:buildingdb][:mongodb][:password] %>",
+      "server": {
+        "auto_reconnect": true
+      }
+    }
+  },
+  "mongodb": {
   },
   "email": {
     "smtp": {
