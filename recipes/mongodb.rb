@@ -31,7 +31,7 @@ end
 file "/tmp/mongo_db_setup" do
   content <<-EOM
     use #{node[:buildingdb][:mongodb][:database]}
-    db.createUser( { user: "#{ node[:buildingdb][:mongodb][:user][:name] }", pwd: "#{ node[:buildingdb][:mongodb][:user][:password] }", roles: [ "readWrite", "dbAdmin" ] } );
+    db.createUser( { user: "#{ node[:buildingdb][:mongodb][:user] }", pwd: "#{ node[:buildingdb][:mongodb][:password] }", roles: [ "readWrite", "dbAdmin" ] } );
   EOM
 end
 
