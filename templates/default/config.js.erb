@@ -39,6 +39,9 @@ module.exports = {
   "session": {
     "secret": "<%= node[:buildingdb][:session_secret] %>"
   },
+  "mapzen": {
+    "pelias": "<%= node[:buildingdb][:mapzen_pelias] %>"
+  },
   "s3": {
     <% if node[:buildingdb][:s3][:access_id] and node[:buildingdb][:s3][:access_key] %>
     "accessId": "<%= node[:buildingdb][:s3][:access_id] %>",
