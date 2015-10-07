@@ -28,7 +28,7 @@ default[:buildingdb][:verify_email_subject] = "Building verify"
 default[:buildingdb][:session_secret] = "secret"
 
 default[:buildingdb][:nginx][:client_max_body_size] = "50M"
-
+default[:buildingdb][:mapzen_pelias_api_key] = ""
 
 default[:buildingdb][:s3][:access_id] = nil
 default[:buildingdb][:s3][:access_key] = nil
