@@ -10,6 +10,8 @@ default[:buildingdb][:node][:user] = 'www-data'
 default[:buildingdb][:node][:group] = 'www-data'
 default[:buildingdb][:node][:environment] = 'production'
 
+default[:buildingdb][:site_url] = 'http://dev.polygon.city'
+
 default[:buildingdb][:mongodb][:version] = '2.6.8'
 default[:buildingdb][:mongodb][:port] = 27017
 default[:buildingdb][:mongodb][:host] = "localhost"
