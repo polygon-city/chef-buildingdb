@@ -4,6 +4,7 @@ var port = <%= node[:buildingdb][:mongodb][:port] %>
 var database = "<%= node[:buildingdb][:mongodb][:database] %>"
 module.exports = {
   "siteURL": "<%= node[:buildingdb][:site_url] %>",
+  "tmpDirectory": "<%= node[:buildingdb][:tmp_directory] %>",
   "db": {
     "url": "mongodb://"+host+":"+port + "/" + database,
     "options": {
