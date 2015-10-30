@@ -37,11 +37,17 @@ application node[:buildingdb][:application] do
       cwd "#{new_resource.release_path}"
       command "bower install --allow-root"
     end
+
+    execute "load mongodb indexes" do
+      cwd "#{new_resource.release_path}"
+      command "for file in `ls schema`; do mongo #{node[:buildingdb][:mongodb][:host]}/#{node[:buildingdb][:mongodb][:database]} -u #{node[:buildingdb][:mongodb][:user]} -p #{node[:buildingdb][:mongodb][:password]}  < schema/$file; done;"
+    end
   end
 
   symlinks "config/config.js" => "config/config.js",
-	   "config/setup.js" => "config/setup.js",
-	   "tmp" => "tmp"
+     "config/setup.js" => "config/setup.js",
+     "schema" => "schema",
+     "tmp" => "tmp"
 
   nodejs do
     template 'upstart.conf.erb'
