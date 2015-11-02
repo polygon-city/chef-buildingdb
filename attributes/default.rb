@@ -37,3 +37,5 @@ default[:buildingdb][:s3][:access_id] = nil
 default[:buildingdb][:s3][:access_key] = nil
 default[:buildingdb][:s3][:region] = "us-east-1"
 default[:buildingdb][:s3][:bucket] = "dev.polygon.city"
+
+default[:buildingdb][:sentry_dsl] = "https://87b245aaaacf4a63814f8e3d606ab95d:99839dcbcfb94ff0b0b89a181634aea0@app.getsentry.com/56588"
