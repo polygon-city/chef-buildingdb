@@ -51,5 +51,8 @@ module.exports = {
     <% end %>
     "region": "<%= node[:buildingdb][:s3][:region] %>",
     "bucket": "<%= node[:buildingdb][:s3][:bucket] %>"
+  },
+  "sentry": {
+    "dsl": "<%= node[:buildingdb][:sentry_dsl] %>"
   }
 };
